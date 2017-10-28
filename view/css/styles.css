@@ -1,0 +1,65 @@
+/**
+ * Customized Styles
+ *
+ * @author Azfar Ahmed
+ * @version 1.0
+ * @date November 02, 2015
+ * @EasyPhp MVC Framework
+ * @website www.tutbuzz.com
+ */
+ 
+html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
+  
+body {
+	background: #efefef;
+}
+
+.collapsible-body {
+	padding: 0 20px;
+}
+
+.collapsible-body p {
+	padding: 0;
+	margin-bottom: 15px;
+}
+
+code, kbd, pre, samp {
+    margin: 0;
+}
+
+nav .brand-logo {
+	margin-left: 20px;
+}
+
+.wrapper {
+background: white;
+float: left;
+width: 100%; 
+padding-bottom: 50px;
+margin-bottom: 50px;
+}
+
+.details td{
+	text-align: center;
+}
+
+.user-form {
+	padding: 0 25px;
+}
+
+.header {
+	font-size: 30px;
+	padding: 0 25px;
+}
+
+.error  {
+	color: red;
+    margin-left: 25px;
+}
+
+.success  {
+	color: green;
+	margin-left: 25px;
+}
