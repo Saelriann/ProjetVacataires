@@ -28,17 +28,15 @@ if(!empty($result)) {
             </div> <br>
             <div class="input-field col s12">
                 <!-- pour le moment, le format de la date de naissance n'est pas intuitif mais il sera changé -->
-                <label for="datenaissance"> Date de naissance (format "1980-12-31") </label> <br>
+                <label for="datenaissance"> Date de naissance </label> <br>
                 <input id="datenaissance" name="datenaissance" type="date" class="validate" value="<?php if(!empty($userdata['datenaissance'])) { echo $userdata['datenaissance']; } ?>">
             </div> <br>
             <div class="input-field col s12">
                 <label for="adresse"> Adresse </label> <br>
-                <input id="adresse" name="adresse" type="texte" class="validate" value="<?php if(!empty($userdata['adresse'])) { echo $userdata['adresse']; } ?>">
+                <input id="adresse" name="adresse" type="text" class="validate" value="<?php if(!empty($userdata['adresse'])) { echo $userdata['adresse']; } ?>">
             </div> <br>
 			<div class="input-field col s12">
 				<button class="btn waves-effect waves-light light-blue darken-4" type="submit"> Modifier </button>
 			</div>
 		</form>
 </div> <br>
-
-<a href='<?php echo $GLOBALS['ep_dynamic_url']; ?> 	'> Retour à la page principale  </a>

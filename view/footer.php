@@ -1,9 +1,11 @@
 <!--
  * Pied de page
  -->
+<br>
+<br>
 </center>
 <br>
-<br>
+<center> <a href='<?php echo $GLOBALS['ep_dynamic_url']; ?> 	'> Retour à la page principale  </a> </center>
 <br>
 <script> 
 /* Used for syntax highlighter */

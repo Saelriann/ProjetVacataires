@@ -1,5 +1,5 @@
 <center>
-	<h1> 404 ERROR </h1>
+	<h1> Erreur 404 </h1>
 	<br/>
-	<h2> Page not found </h2>
+	<h2> Impossible de trouver la page demandée </h2>
 </center>

@@ -25,6 +25,4 @@ if(!empty($result)) {
             <button class="btn waves-effect waves-light light-blue darken-4" type="submit"> Modifier </button>
         </div>
     </form>
-</div> <br>
-
-<a href='<?php echo $GLOBALS['ep_dynamic_url']; ?> 	'> Retour à la page principale  </a>
+</div>

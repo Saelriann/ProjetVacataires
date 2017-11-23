@@ -16,6 +16,10 @@ class users_model extends DBconfig {
 		$result = $this->helper->db_select("*", "utilisateur", "");
 		return $result;
 	}
+
+	public function getAllUsersByPoste($poste) {
+		$result = $this->helper->db_select("*", "utilisateur", "WHERE poste=$poste");
+	}
 	
 	public function insertUser($data, $table) {
 		$result = $this->helper->db_insert($data, $table);

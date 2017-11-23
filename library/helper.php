@@ -63,4 +63,21 @@
 			return false;
 		}
 	}
+
+	public function verifyDate($date) { //fr to en if needed but i don't think so
+        $validation = DateTime::createFromFormat('d/m/Y', $date);
+        if ($validation) {
+            $arr = explode("/", $date);
+            if (checkdate($arr[1], $arr[0], $arr[2])) {
+                $dateF = implode("-", array_reverse($arr));
+                return $dateF;
+            }
+        }
+        return null;
+    }
+
+    public function dateen2fr($date) { // affichage d'une date au format français
+        $date = explode("-", $date);
+        return implode("/", array_reverse($date));
+    }
  }

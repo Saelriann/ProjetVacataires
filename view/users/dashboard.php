@@ -1,4 +1,4 @@
-<h1> Connexion réussie ! </h1>
+<h1> Profil </h1>
 <br/>
 <table class="details bordered" align="center">
 	<tr>
@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<td> Date de naissance : </td>
-		<td> <?php echo $userdata['datenaissance']; ?> <i> todo : changer le format</i>  </td>
+		<td> <?php echo $userdata['datenaissance']; ?> </td>
 	</tr>
 	<tr>
 		<td> Adresse : </td>

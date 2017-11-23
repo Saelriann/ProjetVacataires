@@ -32,5 +32,3 @@ Fonctionnalité à venir ...
 	</div>
 </div>
 -->
-<a href='<?php echo $GLOBALS['ep_dynamic_url']; ?> 	'> Retour à la page principale  </a>
-

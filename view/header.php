@@ -23,11 +23,11 @@
 
   	  <?php if(strlen($_SESSION["easyphp_sessionid"]) > 1) { ?>	
 		<!-- Dropdown Trigger -->
-		<li><a class="nav-link" href="#" > Bonjour, <?php echo $userdata['prenom']; ?> </a></li>
+		<li><a class="nav-link" href='<?php echo $GLOBALS['ep_dynamic_url']; ?>'> Bonjour, <?php echo $userdata['prenom']; ?> </a></li>
 	  <?php } ?>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="<?php echo $ep_dynamic_url; ?>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
