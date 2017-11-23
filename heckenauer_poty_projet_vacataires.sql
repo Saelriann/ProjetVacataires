@@ -8,7 +8,7 @@ DEFAULT COLLATE utf8_general_ci;
 USE projet_vacataires;
 
 -- --------------------------------------------------------
--- --------------------------------------------------------
+
 -- -----------------------
 -- nettoyage des tables --
 -- -----------------------
@@ -55,7 +55,8 @@ CREATE TABLE IF NOT EXISTS document (
 --
 CREATE TABLE IF NOT EXISTS formation (
   idformation varchar(255) NOT NULL,
-  nomformation varchar(255) DEFAULT NULL,
+  nomformation varchar(255) NOT NULL,
+  responsable varchar(255) NOT NULL,
   PRIMARY KEY (idformation)
 ) ENGINE=InnoDB;
 
@@ -178,11 +179,14 @@ CREATE TABLE IF NOT EXISTS cours (
 -- ------------------------------
 ALTER TABLE matiere ADD CONSTRAINT FK_idformation_matiere FOREIGN KEY (idformation) REFERENCES formation(idformation) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE matiere ADD CONSTRAINT FK_idniveau_matiere FOREIGN KEY (idniveau) REFERENCES niveau(idniveau) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE cours ADD CONSTRAINT FK_enseignant_cours FOREIGN KEY (enseignant) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE salle ADD CONSTRAINT FK_idbatiment_salle FOREIGN KEY (idbatiment) REFERENCES batiment(idbatiment) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE matiere ADD CONSTRAINT FK_idnommatiere_matiere FOREIGN KEY (intitulematiere) REFERENCES nommatiere(idnommatiere) ON DELETE CASCADE ON UPDATE CASCADE;
-
-   
+ALTER TABLE salle ADD CONSTRAINT FK_idbatiment_salle FOREIGN KEY (idbatiment) REFERENCES batiment(idbatiment) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE cours ADD CONSTRAINT FK_enseignant_cours FOREIGN KEY (enseignant) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE cours ADD CONSTRAINT FK_idtype_cours FOREIGN KEY (idtype) REFERENCES type(idtype) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE cours ADD CONSTRAINT FK_idsalle_cours FOREIGN KEY (idsalle) REFERENCES salle(idsalle) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE cours ADD CONSTRAINT FK_idmatiere_cours FOREIGN KEY (idmatiere) REFERENCES matiere(idmatiere) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE formation ADD CONSTRAINT FK_idformation_formation FOREIGN KEY (responsable) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE utilisateur ADD CONSTRAINT FK_idposte_utilisateur FOREIGN KEY (poste) REFERENCES poste(idposte) ON DELETE CASCADE ON UPDATE CASCADE;
 -- -------------------------
 -- remplissage des tables --
 -- -------------------------
@@ -239,11 +243,11 @@ INSERT INTO utilisateur (email, mdp, nom, prenom, poste, adresse, datenaissance,
 --
 -- Déchargement des données de la table formation
 --
-INSERT INTO formation (idformation, nomformation) VALUES
-('AGEC', 'Administration et Gestion des Entreprises Culturelles'),
-('IMR', 'Informatique Mobile et Répartie'),
-('LEA', 'Langues Étrangères Appliquées '),
-('MIAGE', 'Méthodes Informatiques Appliquées à la Gestion d\'Entreprise');
+INSERT INTO formation (idformation, nomformation, responsable) VALUES
+('AGEC', 'Administration et Gestion des Entreprises Culturelles', 'bruno.adam@uha.fr'),
+('IMR', 'Informatique Mobile et Répartie', 'bruno.adam@uha.fr'),
+('LEA', 'Langues Étrangères Appliquées ', 'bruno.adam@uha.fr'),
+('MIAGE', 'Méthodes Informatiques Appliquées à la Gestion d\'Entreprise', 'bruno.adam@uha.fr');
 
 
 --

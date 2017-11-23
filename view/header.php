@@ -23,12 +23,12 @@
 
   	  <?php if(strlen($_SESSION["easyphp_sessionid"]) > 1) { ?>	
 		<!-- Dropdown Trigger -->
-		<li><a class="nav-link" href='<?php echo $GLOBALS['ep_dynamic_url']; ?>'> Bonjour, <?php echo $userdata['prenom']; ?> </a></li>
+		<li><a class="nav-link" href='<?php echo $GLOBALS['ep_dynamic_url']; ?>'> Bonjour, <?php echo $_SESSION['prenom']; ?> </a></li>
 	  <?php } ?>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="<?php echo $ep_dynamic_url; ?>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Menu
+          Mon compte
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/settings">Modifier son compte</a>
@@ -36,6 +36,26 @@
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/logout">Déconnexion</a>
         </div>
       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="<?php echo $ep_dynamic_url; ?>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Cours et formations
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>training">Affichage des formations</a>
+          <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course">Affichage des cours</a>
+          <?php
+          		// le secrétaire gère les cours
+           if($_SESSION["poste"] == 3) { ?>	
+          	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course/registercourse"> Créer un nouveau cours </a>
+          	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>training/updatetraining"> Modifier les formations </a>
+          <?php } ?>
+        </div>
+      </li>
+      <!-- 
+      TODO : gérer les documents et les rémunérations
+		// le contrleur de gestion gère les cours
+       -->
+          		
     </ul>
   </div>
 </nav>

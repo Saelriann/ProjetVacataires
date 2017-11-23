@@ -37,20 +37,22 @@
                 <label for="heurefincours"> Heure de fin</label> <br>
                 <input id="heurefincours" name="heurefincours" type="time" class="validate" value="<?php if (isset($_POST['heurefincours'])) { echo $post['heurefincours']; } ?>">
             </div>
+
+<!--
             <div class="input-field col s12">
                 <label for="nom"> Matière </label> <br>
                 <input id="nom" name="nom" type="text" class="validate" value="<?php if (isset($_POST['nom'])) { echo $post['nom']; } ?>">
             </div>
-
             <div class="input-field col s12">
                 <label for="nom"> Type </label> <br>
                 <input id="nom" name="nom" type="text" class="validate" value="<?php if (isset($_POST['nom'])) { echo $post['nom']; } ?>">
             </div>
-
             <div class="input-field col s12">
                 <label for="prenom"> Salle </label> <br>
                 <input id="prenom" name="prenom" type="text" class="validate" value="<?php if (isset($_POST['prenom'])) { echo $post['prenom']; } ?>">
             </div>
+-->
+
             <div class="input-field col s12">
                 <label for="enseignant"> Enseignant </label> <br>
                 <select class="form-field" name="enseignant">
