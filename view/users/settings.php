@@ -33,7 +33,7 @@ if(!empty($result)) {
             </div> <br>
             <div class="input-field col s12">
                 <label for="adresse"> Adresse </label> <br>
-                <input id="adresse" name="adresse" type="date" class="validate" value="<?php if(!empty($userdata['adresse'])) { echo $userdata['adresse']; } ?>">
+                <input id="adresse" name="adresse" type="texte" class="validate" value="<?php if(!empty($userdata['adresse'])) { echo $userdata['adresse']; } ?>">
             </div> <br>
 			<div class="input-field col s12">
 				<button class="btn waves-effect waves-light light-blue darken-4" type="submit"> Modifier </button>
