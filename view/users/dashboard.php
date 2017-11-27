@@ -26,7 +26,7 @@
 	</tr>
     <tr>
         <td> Poste : </td>
-        <td> <i> todo: jointure avec table poste </i> </td>
+        <td> <?php echo $userdata['poste_name']; ?> </td>
     </tr>
 	
 </table>

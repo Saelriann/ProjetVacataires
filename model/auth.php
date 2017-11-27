@@ -78,7 +78,10 @@ class auth_model extends DBconfig {
 			$user_id = $session_array['user_id'];
 			$resultRaw = $this->helper->db_select("*", "utilisateur", "WHERE email='$user_id'");
 			$result = $resultRaw->fetch_assoc();
-			$_SESSION["poste"] = $result['poste'];
+
+			$posteID = $result['poste'];
+			$resultRaw = $this->helper->db_select("intituleposte", "utilisateur", "INNER JOIN poste ON utilisateur.poste = poste.idposte WHERE idposte='$posteID'")->fetch_assoc();
+			$result['poste_name'] = $resultRaw['intituleposte'];	
 			return $result;
 	}
 	
