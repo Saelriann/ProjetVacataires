@@ -20,6 +20,10 @@ class users_model extends DBconfig {
 	public function getAllUsersByPoste($poste) {
 		$result = $this->helper->db_select("*", "utilisateur", "WHERE poste=$poste");
 	}
+
+	public function getPosteNameFromUserPosteID($posteID) {
+		$result = $this->helper->db_select("intituleposte", "utilisateur", "INNER JOIN poste ON utilisateur.poste = poste.idposte WHERE idposte=$posteID");
+	}
 	
 	public function insertUser($data, $table) {
 		$result = $this->helper->db_insert($data, $table);
