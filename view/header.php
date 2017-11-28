@@ -24,18 +24,24 @@
   	  <?php if(strlen($_SESSION["easyphp_sessionid"]) > 1) { ?>	
 		<!-- Dropdown Trigger -->
 		<li><a class="nav-link" href='<?php echo $GLOBALS['ep_dynamic_url']; ?>'> Bonjour, <?php echo $_SESSION['prenom']; ?> </a></li>
-	  <?php } ?>
-
+	  <?php } 
+       if(isset($_SESSION['email'])) {
+    ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="<?php echo $ep_dynamic_url; ?>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mon compte
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course/mesCours">Mes Cours</a>
+          ----
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/settings">Modifier son compte</a>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/password">Changer de mot de passe</a>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/logout">Déconnexion</a>
         </div>
       </li>
+    <?php } else { ?>
+       <a class="nav-link" href="<?php echo $ep_dynamic_url; ?>"> Se connecter </a>
+    <?php } ?>
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="<?php echo $ep_dynamic_url; ?>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Cours et formations
@@ -45,10 +51,12 @@
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course">Affichage des cours</a>
           <?php
           		// le secrétaire gère les cours
-           if($_SESSION["poste"] == 3) { ?>	
+           
+            if(isset($_SESSION['email'])) {
+              if($_SESSION["poste"] == 3) { ?>	
           	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course/registercourse"> Créer un nouveau cours </a>
           	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>training/updatetraining"> Modifier les formations </a>
-          <?php } ?>
+          <?php } } ?>
         </div>
       </li>
       <!-- 

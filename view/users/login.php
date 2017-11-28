@@ -28,7 +28,7 @@ if(!empty($errors)) {
 			  <button class="btn waves-effect waves-light light-blue darken-4" type="submit">Connexion</button>
 			</div> <br>
 			<div class="input-field col s12">
-			  <a href='<?php echo $GLOBALS['ep_dynamic_url']; ?>register'> S'enregistrer </a> | <a href='<?php echo $GLOBALS['ep_dynamic_url']; ?>login/forgot'> Mot de passe oublié </a>
+			  <a href='<?php echo $GLOBALS['ep_dynamic_url']; ?>login/forgot'> Mot de passe oublié </a>
 			</div>
 		  <input id="remember2" type="hidden" name="remember"/>
 		</form>

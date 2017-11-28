@@ -1,6 +1,6 @@
 <?php 
 /**
- * Register Controller
+ * NE SERVIRA PAS DANS CE PROJET MAIS GARDE POUR MODELE CAR FONCTIONS UTILES (pour créer cours par exemple)
  */
  
 class register {
