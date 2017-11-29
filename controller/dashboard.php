@@ -20,6 +20,7 @@ class dashboard extends authcheck
         $data['userdata']['datenaissance'] = $this->model->helper->dateen2fr($data['userdata']['datenaissance']);
         $_SESSION['prenom'] =  $data['userdata']['prenom'];
         $_SESSION['email'] =  $data['userdata']['email'];
+        $_SESSION['poste'] = $data['userdata']['poste'];
         $data['ep_title'] = "Dashboard"; // Nom
         $data['view_page'] = "users/dashboard.php"; // controleur à afficher
         $data['ep_header'] = $GLOBALS['ep_header']; // entête

@@ -51,7 +51,6 @@
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course">Affichage des cours</a>
           <?php
           		// le secrétaire gère les cours
-           
             if(isset($_SESSION['email'])) {
               if($_SESSION["poste"] == 3) { ?>	
           	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course/registercourse"> Créer un nouveau cours </a>
@@ -68,3 +67,6 @@
   </div>
 </nav>
 <center>
+  <pre>
+    <?php var_dump($_SESSION); ?>
+  </pre>
