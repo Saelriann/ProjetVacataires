@@ -30,4 +30,23 @@
     </tr>
 	
 </table>
+
+<br/>
+<br/>
+<br/>
+
+<table class="details bordered" align="center">
+    <tr>
+		<td colspan="2"> <h5> Liste des profils </h5> </td>
+	</tr>
+
+    <?php
+    // TODO : différencier utilisateurs
+    // TODO : lien pour acceder au reste des infos
+    foreach ($userdata['userList'] as $row) {
+    	$user = $row[0];
+    	echo "<tr> <td> $user </td> </tr>";
+	}
+    ?>
+</table>
 </center>
