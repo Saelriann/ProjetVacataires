@@ -106,7 +106,8 @@ class auth_model extends DBconfig {
 
 		// liste des profils vu par le Responsable financier
 		if ($result['poste_name'] === "Responsable Financier") {
-			
+			$resultRaw = mysqli_fetch_all($this->helper->db_select("email", "utilisateur", ""));
+			$result['userList'] = $resultRaw;
 		}
 
 		return $result;
