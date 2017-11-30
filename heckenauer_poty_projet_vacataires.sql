@@ -246,7 +246,7 @@ INSERT INTO utilisateur (email, mdp, nom, prenom, poste, adresse, datenaissance,
 ('enrico.monti@uha.fr', '8e38b58c61f6441e10665dfb77e62832', 'Enrico', 'Monti', 2, '', '1968-02-02', NULL),
 ('alexandre.binder@uha.fr', 'd53a8cb881ea1f8962d2cabae804f91b', 'Binder', 'Alexandre', 1, '27 Avenue DMC 68200 Mulhouse', '1991-03-12', NULL),
 ('thierry.sahler@uha.fr', 'b55740fca1ac693097824d2f1634b5cd', 'Sahler', 'Thierry', 1, '', '1965-01-01', NULL),
-('julie.ehmer@uha.fr', '1d1c6e8664b45442adc8cd2a52a1a83c', 'Bonte', 'Patricia', 3, '', '1980-03-03', NULL),
+('julie.ehmer@uha.fr', '1d1c6e8664b45442adc8cd2a52a1a83c', 'Ehmer', 'Julie', 3, '', '1980-03-03', NULL),
 ('pierrette.figenwald@uha.fr', '9a901060ebafa6fd6ad3991bb5d1a112', 'Figenwald', 'Pierrette', 3, '', '1980-03-03', NULL);
 
 
