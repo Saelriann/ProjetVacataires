@@ -104,7 +104,8 @@ class auth_model extends DBconfig {
 
 		// liste des profils vu par le Contrôle de gestion
 		if ($result['poste_name'] === "Contrôle de Gestion") {
-			// TODO
+			$resultRaw = mysqli_fetch_all($this->helper->db_select("utilisateur.email", "utilisateur", "INNER JOIN poste ON utilisateur.poste = poste.idposte WHERE utilisateur.poste != 4"));
+			$result['userList'] = $resultRaw;
 		}
 
 		// liste des profils vu par le Responsable financier
