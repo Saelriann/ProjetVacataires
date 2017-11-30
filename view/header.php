@@ -67,6 +67,11 @@
   </div>
 </nav>
 <center>
-  <pre>
-    <?php var_dump($_SESSION); ?>
-  </pre>
+
+<!-- 
+<pre> 
+<?php 
+    //var_dump($_SESSION); 
+?> 
+</pre> 
+-->

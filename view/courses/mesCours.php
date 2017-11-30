@@ -5,7 +5,6 @@ if(!empty($errors)) {
 }
 else {
 
-
 echo '<h1> Liste de vos cours </h1> <br/>
 <table class="details bordered" align="center">
 	<th> Matière </th>
@@ -15,9 +14,9 @@ echo '<h1> Liste de vos cours </h1> <br/>
 	';
 	for ($i=0; $i < count($coursedata); $i++) {
 		echo '<tr>
-				<td>'.$coursedata[$i]['matiere'].'</td>
-				<td>'.$coursedata[$i]['horaire'].'</td>
-				<td>'.$coursedata[$i]['salle'].'</td>
+				<td>'.$coursedata[$i]['matiere'].' ('.$coursedata[$i]['niveau']." ".$coursedata[$i]['formation'].')</td>
+				<td>'.$coursedata[$i]['datecours'].' ~ '.$coursedata[$i]['heuredebutcours'].' - '.$coursedata[$i]['heurefincours'].'</td>
+				<td>'.$coursedata[$i]['salle']." - ".$coursedata[$i]['batiment'].'</td>
 				<td>'.$coursedata[$i]['type'].'</td>
 			</tr>';
 	}
