@@ -41,6 +41,11 @@
 
 <br/>
 <h2> Liste </h2>
+
+<pre>
+<?php var_dump($coursedata)?>
+</pre>
+
 <table class="table" align="center">
 	<th> Matière </th>
 	<th> Horaires </th>

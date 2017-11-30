@@ -18,7 +18,14 @@ class training_model extends DBconfig {
 				$r = $result[$i]['responsable'];
 				$et = $this->helper->db_select("nom, prenom", "utilisateur", "WHERE email='$r'");
 				$responsable = $et->fetch_assoc();
-				$result[$i]['responsable'] = $responsable['prenom'].' '.$responsable['nom'];
+				$result[$i]['prenomResponsable'] = $responsable['prenom'];
+				$result[$i]['nomResponsable'] = $responsable['nom'];
+
+				$r = $result[$i]['secretaire'];
+				$et = $this->helper->db_select("nom, prenom", "utilisateur", "WHERE email='$r'");
+				$secretaire = $et->fetch_assoc();
+				$result[$i]['prenomSecretaire'] = $secretaire['prenom'];
+				$result[$i]['nomSecretaire'] = $secretaire['nom'];
 			}
 			return $result;
 	}
