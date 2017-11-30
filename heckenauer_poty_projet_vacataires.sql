@@ -240,15 +240,23 @@ INSERT INTO utilisateur (email, mdp, nom, prenom, poste, adresse, datenaissance,
 ('jessica.blyet@uha.fr', 'a7735c4780885a5cd06085e13289d81d', 'Blyet', 'Jessica', 4, '', '1991-04-04', NULL),
 ('lionel.signolet@uha.fr', 'caa4809b8ab788afde5c3b22e209ca26', 'Signolet', 'Lionel', 5, '', '1974-05-05', NULL),
 ('patricia.bonte@uha.fr', '6e41125b44e89615a477440ce0a24008', 'Bonte', 'Patricia', 3, '', '1980-03-03', NULL),
-('joel.heinis@uha.fr', '5aa93f42a1ff6635b542a50f94fd8e16', 'Heinis', 'Joel', 1, '', '1978-01-01', NULL);
+('joel.heinis@uha.fr', '5aa93f42a1ff6635b542a50f94fd8e16', 'Heinis', 'Joel', 1, '', '1978-01-01', NULL),
+('mahmoud.melkemi@uha.fr', '5337b8eb7a6f3897b0b7e56a94963f05', 'Mahmoud', 'Melkemi', 2, '', '1942-02-02', NULL),
+('evelyne.ducrot@uha.fr', 'dfb6b5fd7a9440e77eb6e4a4bf6925c8', 'Evelyne', 'Ducrot', 2, '', '1978-02-02', NULL),
+('enrico.monti@uha.fr', '8e38b58c61f6441e10665dfb77e62832', 'Enrico', 'Monti', 2, '', '1968-02-02', NULL),
+('alexandre.binder@uha.fr', 'd53a8cb881ea1f8962d2cabae804f91b', 'Binder', 'Alexandre', 1, '27 Avenue DMC 68200 Mulhouse', '1991-03-12', NULL),
+('thierry.sahler@uha.fr', 'b55740fca1ac693097824d2f1634b5cd', 'Sahler', 'Thierry', 1, '', '1965-01-01', NULL),
+('julie.ehmer@uha.fr', '1d1c6e8664b45442adc8cd2a52a1a83c', 'Bonte', 'Patricia', 3, '', '1980-03-03', NULL),
+('pierrette.figenwald@uha.fr', '9a901060ebafa6fd6ad3991bb5d1a112', 'Figenwald', 'Pierrette', 3, '', '1980-03-03', NULL);
+
 
 --
 -- Déchargement des données de la table formation
 --
 INSERT INTO formation (idformation, nomformation, responsable, secretaire) VALUES
-('AGEC', 'Administration et Gestion des Entreprises Culturelles', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr'),
-('IMR', 'Informatique Mobile et Répartie', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr'),
-('LEA', 'Langues Étrangères Appliquées ', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr'),
+('AGEC', 'Administration et Gestion des Entreprises Culturelles', 'evelyne.ducrot@uha.fr', 'julie.ehmer@uha.fr'),
+('IMR', 'Informatique Mobile et Répartie', 'mahmoud.melkemi@uha.fr', 'patricia.bonte@uha.fr'),
+('LEA', 'Langues Étrangères Appliquées ', 'enrico.monti@uha.fr', 'pierrette.figenwald@uha.fr'),
 ('MIAGE', 'Méthodes Informatiques Appliquées à la Gestion d\'Entreprise', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr');
 
 
@@ -293,4 +301,4 @@ INSERT INTO cours (idcours, datecours, heuredebutcours, heurefincours, idmatiere
 (4, '2017-12-09', '08:00:00', '12:00:00', 2, 1, 1, 'joel.heinis@uha.fr'),
 (5, '2017-12-16', '08:00:00', '10:00:00', 2, 1, 1, 'joel.heinis@uha.fr'),
 (6, '2017-12-16', '10:00:00', '12:00:00', 2, 1, 4, 'joel.heinis@uha.fr'),
-(7, '2017-12-08', '08:00:00', '12:00:00', 3, 1, 3, 'lionel.signolet@uha.fr');
+(7, '2017-12-08', '08:00:00', '12:00:00', 3, 1, 3, 'thierry.sahler@uha.fr');
