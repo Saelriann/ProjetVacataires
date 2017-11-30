@@ -96,7 +96,10 @@ class auth_model extends DBconfig {
 		
 		// liste des profils vu par le Responsable administratif
 		if ($result['poste_name'] === "Responsable Administratif") {
-			// TODO
+			$userMail = $session_array['user_id'];
+			$resultVacataire = mysqli_fetch_all($this->helper->db_select("DISTINCT cours.enseignant", "cours", "INNER JOIN matiere ON cours.idmatiere = matiere.idmatiere WHERE matiere.idformation IN(SELECT idformation FROM formation WHERE secretaire='$userMail')"));
+			$resultResponsableFormation = mysqli_fetch_all($this->helper->db_select("DISTINCT responsable", "formation", "WHERE secretaire='$userMail'"));
+			$result['userList'] = array_merge($resultVacataire, $resultResponsableFormation);
 		}
 
 		// liste des profils vu par le Contrôle de gestion
