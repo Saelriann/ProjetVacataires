@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS formation (
   idformation varchar(255) NOT NULL,
   nomformation varchar(255) NOT NULL,
   responsable varchar(255) NOT NULL,
+  secretaire varchar(255) NOT NULL,
   PRIMARY KEY (idformation)
 ) ENGINE=InnoDB;
 
@@ -185,7 +186,8 @@ ALTER TABLE cours ADD CONSTRAINT FK_enseignant_cours FOREIGN KEY (enseignant) RE
 ALTER TABLE cours ADD CONSTRAINT FK_idtype_cours FOREIGN KEY (idtype) REFERENCES type(idtype) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE cours ADD CONSTRAINT FK_idsalle_cours FOREIGN KEY (idsalle) REFERENCES salle(idsalle) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE cours ADD CONSTRAINT FK_idmatiere_cours FOREIGN KEY (idmatiere) REFERENCES matiere(idmatiere) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE formation ADD CONSTRAINT FK_idformation_formation FOREIGN KEY (responsable) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE formation ADD CONSTRAINT FK_responsable_formation FOREIGN KEY (responsable) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE formation ADD CONSTRAINT FK_secretaire_formation FOREIGN KEY (secretaire) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE utilisateur ADD CONSTRAINT FK_idposte_utilisateur FOREIGN KEY (poste) REFERENCES poste(idposte) ON DELETE CASCADE ON UPDATE CASCADE;
 -- -------------------------
 -- remplissage des tables --
@@ -243,11 +245,11 @@ INSERT INTO utilisateur (email, mdp, nom, prenom, poste, adresse, datenaissance,
 --
 -- Déchargement des données de la table formation
 --
-INSERT INTO formation (idformation, nomformation, responsable) VALUES
-('AGEC', 'Administration et Gestion des Entreprises Culturelles', 'bruno.adam@uha.fr'),
-('IMR', 'Informatique Mobile et Répartie', 'bruno.adam@uha.fr'),
-('LEA', 'Langues Étrangères Appliquées ', 'bruno.adam@uha.fr'),
-('MIAGE', 'Méthodes Informatiques Appliquées à la Gestion d\'Entreprise', 'bruno.adam@uha.fr');
+INSERT INTO formation (idformation, nomformation, responsable, secretaire) VALUES
+('AGEC', 'Administration et Gestion des Entreprises Culturelles', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr'),
+('IMR', 'Informatique Mobile et Répartie', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr'),
+('LEA', 'Langues Étrangères Appliquées ', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr'),
+('MIAGE', 'Méthodes Informatiques Appliquées à la Gestion d\'Entreprise', 'bruno.adam@uha.fr', 'patricia.bonte@uha.fr');
 
 
 --
@@ -290,4 +292,5 @@ INSERT INTO cours (idcours, datecours, heuredebutcours, heurefincours, idmatiere
 (3, '2017-12-16', '10:00:00', '12:00:00', 1, 1, 4, 'joel.heinis@uha.fr'),
 (4, '2017-12-09', '08:00:00', '12:00:00', 2, 1, 1, 'joel.heinis@uha.fr'),
 (5, '2017-12-16', '08:00:00', '10:00:00', 2, 1, 1, 'joel.heinis@uha.fr'),
-(6, '2017-12-16', '10:00:00', '12:00:00', 2, 1, 4, 'joel.heinis@uha.fr');
+(6, '2017-12-16', '10:00:00', '12:00:00', 2, 1, 4, 'joel.heinis@uha.fr'),
+(7, '2017-12-08', '08:00:00', '12:00:00', 3, 1, 3, 'lionel.signolet@uha.fr');
