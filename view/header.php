@@ -49,6 +49,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>training">Affichage des formations</a>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course">Affichage des cours</a>
+          <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>major">Affichage des matières</a>
           <?php
           		// le secrétaire gère les cours
             if(isset($_SESSION['email'])) {

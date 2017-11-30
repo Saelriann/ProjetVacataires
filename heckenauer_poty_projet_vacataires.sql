@@ -289,7 +289,8 @@ INSERT INTO matiere (idmatiere, intitulematiere, idformation, idniveau) VALUES
 (3, 3, 'MIAGE', 4),
 (4, 4, 'IMR', 4),
 (5, 2, 'MIAGE', 4),
-(6, 2, 'IMR', 4);
+(6, 2, 'IMR', 4),
+(7, 2, 'LEA', 1);
 
 --
 -- Déchargement des données de la table cours
