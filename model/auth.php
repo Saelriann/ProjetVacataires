@@ -72,17 +72,44 @@ class auth_model extends DBconfig {
 	}
 	
 	public function userDetails() {
-			$SessionId = $_SESSION["easyphp_sessionid"];
-			$resultRaw = $this->helper->db_select("user_id", "sessions", "WHERE sessionid='$SessionId'");
-			$session_array = $resultRaw->fetch_assoc();
-			$user_id = $session_array['user_id'];
-			$resultRaw = $this->helper->db_select("*", "utilisateur", "WHERE email='$user_id'");
-			$result = $resultRaw->fetch_assoc();
+		$SessionId = $_SESSION["easyphp_sessionid"];
+		$resultRaw = $this->helper->db_select("user_id", "sessions", "WHERE sessionid='$SessionId'");
+		$session_array = $resultRaw->fetch_assoc();
+		$user_id = $session_array['user_id'];
+		$resultRaw = $this->helper->db_select("*", "utilisateur", "WHERE email='$user_id'");
+		$result = $resultRaw->fetch_assoc();
 
-			$posteID = $result['poste'];
-			$resultRaw = $this->helper->db_select("intituleposte", "utilisateur", "INNER JOIN poste ON utilisateur.poste = poste.idposte WHERE idposte='$posteID'")->fetch_assoc();
-			$result['poste_name'] = $resultRaw['intituleposte'];	
-			return $result;
+		// récupérer le nom du poste de l'utilisateur
+		$posteID = $result['poste'];
+		$resultRaw = $this->helper->db_select("intituleposte", "utilisateur", "INNER JOIN poste ON utilisateur.poste = poste.idposte WHERE idposte='$posteID'")->fetch_assoc();
+		$result['poste_name'] = $resultRaw['intituleposte'];	
+
+		// récupérer la liste des profils qui peuvent être affichés par l'utilisateur
+		// liste des profils vu par le Responsable de formation
+		if ($result['poste_name'] === "Responsable Formation") {
+			$userMail = $session_array['user_id'];
+			$userFormationRaw = $this->helper->db_select("idformation", "formation", "WHERE responsable='$userMail'")->fetch_assoc();
+			$userFormation = $userFormationRaw['idformation'];
+			$resultRaw = mysqli_fetch_all($this->helper->db_select("DISTINCT cours.enseignant", "cours", "INNER JOIN matiere ON cours.idmatiere = matiere.idmatiere WHERE matiere.idformation='$userFormation'"));
+			$result['userList'] = $resultRaw;
+		}
+		
+		// liste des profils vu par le Responsable administratif
+		if ($result['poste_name'] === "Responsable Administratif") {
+			// TODO
+		}
+
+		// liste des profils vu par le Contrôle de gestion
+		if ($result['poste_name'] === "Contrôle de Gestion") {
+			// TODO
+		}
+
+		// liste des profils vu par le Responsable financier
+		if ($result['poste_name'] === "Responsable Financier") {
+			
+		}
+
+		return $result;
 	}
 	
 	public function deleteSession() {	
