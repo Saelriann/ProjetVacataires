@@ -14,7 +14,7 @@ class course_model extends DBconfig {
 	}
 
 		public function traitementAffichage($where) {
-		$resultRaw = $this->helper->db_select("*", "cours", $where);
+		$resultRaw = $this->helper->db_select("*", "cours", "$where");
 		for($i = 0; $result[$i] = $resultRaw->fetch_assoc(); $i++) {
 			// traitement enseignant
 			$r = $result[$i]['enseignant'];
@@ -60,6 +60,9 @@ class course_model extends DBconfig {
 			$result[$i]['type'] = $et->fetch_assoc();
 			$result[$i]['type'] = $result[$i]['type']['libelletype'];
 		}
+		// à régler : la dernière valeur est ajouté automatiquement en tant que "null"
+		array_pop($result);
+		
 		return $result;
 	}
 
@@ -74,7 +77,7 @@ class course_model extends DBconfig {
 	}
 
 	public function courseDetailsByTrainor($enseignant) {
-		return $this->traitementAffichage("WHERE enseignant=$enseignant");
+		return $this->traitementAffichage("WHERE enseignant='$enseignant'");
 	}
 
 

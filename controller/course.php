@@ -20,6 +20,7 @@ class course
         $data['ep_header'] = $GLOBALS['ep_header']; // entête
         $data['ep_footer'] = $GLOBALS['ep_footer']; //  bas de page
         return $data;
+
     }
 
     public function mesCours() 

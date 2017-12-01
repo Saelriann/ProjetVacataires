@@ -12,7 +12,7 @@ echo '<h1> Liste de vos cours </h1> <br/>
 	<th> Salle &#38; Batiment </th>
 	<th> Type </th>
 	';
-	for ($i=0; $i < count($coursedata); $i++) {
+	for ($i=0; $i <count($coursedata); $i++) {
 		echo '<tr>
 				<td>'.$coursedata[$i]['matiere'].' ('.$coursedata[$i]['niveau']." ".$coursedata[$i]['formation'].')</td>
 				<td>'.$coursedata[$i]['datecours'].' ~ '.$coursedata[$i]['heuredebutcours'].' - '.$coursedata[$i]['heurefincours'].'</td>

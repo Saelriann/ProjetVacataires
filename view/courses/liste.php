@@ -1,6 +1,6 @@
 <h1> Liste des cours </h1>
 
-<h2> Tri </h2>
+<!-- <h2> Tri </h2>
 <div>
 	<select id="selection">
 	  <option value="m" selected>Par matière</option> 
@@ -40,14 +40,14 @@
 <br/>
 
 <br/>
-<h2> Liste </h2>
+<h2> Liste </h2> -->
 <table class="table" align="center">
 	<th> Matière </th>
 	<th> Horaires </th>
 	<th> Salle &#38; Batiment </th>
 	<th> Enseignant </th>
 	<th> Type </th>
-	<?php for ($i=0; $i < count($coursedata)-1; $i++): ?>
+	<?php for ($i=0; $i < count($coursedata); $i++): ?>
 	<tr>
 		<td> <?php echo $coursedata[$i]['matiere'].' ('.$coursedata[$i]['niveau']." ".$coursedata[$i]['formation'].')'; ?> </td>
 		<td> <?php echo $coursedata[$i]['datecours'].' ~ '.$coursedata[$i]['heuredebutcours'].' - '.$coursedata[$i]['heurefincours']; ?> </td>
@@ -61,7 +61,7 @@
 
 
 <script type="text/javascript">
-  window.onload = function() {
+/*  window.onload = function() {
   var m = document.getElementById('matieref');
   var f = document.getElementById('formationf');
   var e = document.getElementById('enseignantf');
@@ -80,5 +80,5 @@
   	} else if (v=="e") {
   		e.style.display = 'block';
   	}
-}
+}*/
 </script>
