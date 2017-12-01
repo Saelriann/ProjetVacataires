@@ -27,7 +27,7 @@ class course
     {
         if(isset($_SESSION['email'])) {
             $coursedata = $this->model->courseDetailsByTrainor($_SESSION['email']);
-            if($coursedata[0] != NULL ) {
+            if($coursedata != NULL ) {
                 $data['coursedata'] = $coursedata;
             } else {
                 $data['errors'] = "Aucun cours.";
