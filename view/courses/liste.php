@@ -47,15 +47,17 @@
 	<th> Salle &#38; Batiment </th>
 	<th> Enseignant </th>
 	<th> Type </th>
-	<?php for ($i=0; $i < count($coursedata); $i++): ?>
-	<tr>
-		<td> <?php echo $coursedata[$i]['matiere'].' ('.$coursedata[$i]['niveau']." ".$coursedata[$i]['formation'].')'; ?> </td>
-		<td> <?php echo $coursedata[$i]['datecours'].' ~ '.$coursedata[$i]['heuredebutcours'].' - '.$coursedata[$i]['heurefincours']; ?> </td>
-		<td> <?php echo $coursedata[$i]['salle']." - ".$coursedata[$i]['batiment'] ; ?> </td>
-		<td> <?php echo $coursedata[$i]['enseignant']; ?> </td>
-		<td> <?php echo $coursedata[$i]['type']; ?> </td>
-	</tr>
-	<?php endfor;?>
+<?php
+    foreach ($coursedata as $line) {
+    echo '<tr>
+      <td>'.$line['matiere'].' ('.$line['niveau']." ".$line['formation'].')</td>
+      <td>'.$line['datecours'].' ~ '.$line['heuredebutcours'].' - '.$line['heurefincours'].'</td>
+      <td>'.$line['salle']." - ".$line['batiment'].'</td>
+      <td>'.$line['enseignant'].'</td>
+      <td>'.$line['type'].'</td>
+    </tr>'; 
+  }
+?>
 </table>
 </center>
 

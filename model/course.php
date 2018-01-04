@@ -60,9 +60,10 @@ class course_model extends DBconfig {
 			$result[$i]['type'] = $et->fetch_assoc();
 			$result[$i]['type'] = $result[$i]['type']['libelletype'];
 		}
-		// à régler : la dernière valeur est ajouté automatiquement en tant que "null"
+
+		$result = $this->dontDouble($result);
 		array_pop($result);
-		
+
 		return $result;
 	}
 
@@ -80,14 +81,39 @@ class course_model extends DBconfig {
 		return $this->traitementAffichage("WHERE enseignant='$enseignant'");
 	}
 
+	public function dontDouble($result) {
+		for ($i=0; $i < count($result) ; $i++) { 
+			for ($j=0; $j < count($result) ; $j++) { 
+				if($j!=$i && $result[$i]['formation']!='supprimer' && 
+					$result[$i]['matiere']==$result[$j]['matiere'] && 
+					$result[$i]['datecours']==$result[$j]['datecours'] && 
+					$result[$i]['heuredebutcours']==$result[$j]['heuredebutcours']  && 
+					$result[$i]['heurefincours']==$result[$j]['heurefincours'] && 
+					$result[$i]['heurefincours']==$result[$j]['heurefincours'] && 
+					$result[$i]['enseignant'] == $result[$j]['enseignant']
+				) {
+					$result[$i]['formation'] = $result[$i]['formation'].' '.$result[$j]['formation'];
+					if($result[$i]['niveau']!=$result[$j]['niveau'])$result[$i]['niveau'] = $result[$i]['niveau'].' '.$result[$j]['niveau'];
+					$result[$j]['formation']='supprimer';
+				}
+			}
+		}
+		for ($i=0; $i < count($result) ; $i++) {
+			if($result[$i]['formation']!='supprimer') {
+				$final[$i]['formation'] = $result[$i]['formation'];
+				$final[$i]['niveau'] = $result[$i]['niveau'];
+				$final[$i]['datecours']=$result[$i]['datecours'];
+				$final[$i]['heuredebutcours']=$result[$i]['heuredebutcours'];
+				$final[$i]['heurefincours']=$result[$i]['heurefincours'];
+				$final[$i]['type']=$result[$i]['type'];
+				$final[$i]['enseignant']=$result[$i]['enseignant'];
+				$final[$i]['matiere']=$result[$i]['matiere'];
+				$final[$i]['salle']=$result[$i]['salle'];
+				$final[$i]['batiment']=$result[$i]['batiment'];
+			}
+
+		}
+		return $final;
+	}
 
 }
-
-
-
-
-
-
-
-
-

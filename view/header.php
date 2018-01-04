@@ -53,15 +53,23 @@
           <?php
           		// le secrétaire gère les cours
             if(isset($_SESSION['email'])) {
-              if($_SESSION["poste"] == 3) { ?>	
-          	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course/registercourse"> Créer un nouveau cours </a>
-          	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>training/updatetraining"> Modifier les formations </a>
-          <?php } } ?>
+              if($_SESSION["poste"] == 2 || $_SESSION["poste"] == 3 ||$_SESSION["poste"] == 4 ) { 
+          ?>	
+                ----
+              	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>registercourse"> Créer un nouveau cours </a>
+              	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>updatetraining"> Modifier les formations </a>
+          <?php 
+              } 
+            } 
+          ?>
         </div>
       </li>
       <!-- 
       TODO : gérer les documents et les rémunérations
-		// le contrleur de gestion gère les cours
+      si document fourni par vacataire, alors responsable financier peut verser quelque chose (indicateur OK versement ou oubli document) 
+        ==>  si dans nom == "RIB" && "présence"
+      session = 3/4/5 peut voir les documents fournis par tous les vacataires
+      un vacataire (1) peut voir ses propres documents
        -->
           		
     </ul>

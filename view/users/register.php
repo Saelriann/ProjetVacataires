@@ -60,21 +60,7 @@
 
             <!-- pour le moment, vacataire par défaut lorsqu'on s'enregistre -->
             <input hidden name="poste" value="1">
-            <!--
-            <div class="input-field col s12">
-                <label for="location"> Poste </label> <br>
-                <select class="form-field" name="poste">
-                    <?php
-/*                    $request = "SELECT * FROM poste";
-                    $sql_results = $db->prepare($request);
-                    $sql_results->execute($request);
-                    while ($row = $sql_results->fetch(PDO::FETCH_OBJ)) {
-                        echo "<option value=".$row['idposte']."/>".$row['intituleposte']."</option>";
-                    }
-                    */?>
-                </select>
-            </div>
-            -->
+
             <div class="input-field col s12">
                 <button class="btn waves-effect waves-light light-blue darken-4" type="submit">S'enregistrer</button>
             </div>
