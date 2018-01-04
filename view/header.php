@@ -57,7 +57,6 @@
           ?>	
                 ----
               	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>registercourse"> Créer un nouveau cours </a>
-              	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>updatetraining"> Modifier les formations </a>
           <?php 
               } 
             } 

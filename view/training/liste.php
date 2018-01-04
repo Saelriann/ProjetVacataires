@@ -5,13 +5,17 @@
 	<th> Nom formation </th>
 	<th> Responsable </th>
 	<th> Secrétaire </th>
-	<?php for ($i=0; $i < count($trainingdata); $i++): ?>
-	<tr>
-		<td> <?php echo $trainingdata[$i]['idformation']; ?> </td>
-		<td> <?php echo $trainingdata[$i]['nomformation']; ?> </td>
-		<td> <a href="mailto:<?php echo $trainingdata[$i]['responsable'] ?>"> <?php echo $trainingdata[$i]['prenomResponsable'].' '.$trainingdata[$i]['nomResponsable']; ?> </a> </td>
-		<td> <a href="mailto:<?php echo $trainingdata[$i]['secretaire'] ?>"> <?php echo $trainingdata[$i]['prenomSecretaire'].' '.$trainingdata[$i]['nomSecretaire']; ?> </a> </td>
-	</tr>
-	<?php endfor;?>
+	<?php
+	if(isset($_SESSION['email'])) if($_SESSION["poste"] == 4 ) echo "<th> Modification </th>";
+
+    foreach ($trainingdata as $line) {
+	    echo '<tr> <td>'.$line['idformation'].'</td>';
+	    echo '<td>'.$line['nomformation'].'</td>';
+	    echo '<td> <a href="mailto:'.$line['responsable'].'">'.$line['prenomResponsable'].' '.$line['nomResponsable'].'</a> </td>';
+	    echo '<td> <a href="mailto:'.$line['secretaire'].'">'.$line['prenomSecretaire'].' '.$line['nomSecretaire'].'</a> </td>';
+	    if(isset($_SESSION['email'])) if($_SESSION["poste"] == 4 ) echo '<td> <a href="'.$GLOBALS['ep_dynamic_url'].'training/modify/'.$line['idformation'].'"> Modifier </a> </td>';
+	    echo '</tr>'; 
+	  }
+?>
 </table>
 </center>

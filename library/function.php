@@ -25,8 +25,8 @@ if(isset($_GET['params'])) {
 	if(count($paramsRaw) >= 0) $controller = $paramsRaw[0]; 
 	if(count($paramsRaw) > 1) $func = $paramsRaw[1];	
 	if(count($paramsRaw) > 1)  {
-		for($i = 2; $i < count($paramsRaw); $i+=2) {
-		  $params[] = $paramsRaw[$i+1];
+		for($i = 2; $i < count($paramsRaw); $i++) {
+		  $params[] = $paramsRaw[$i];
 		}
 	}
 }
