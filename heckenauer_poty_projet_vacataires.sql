@@ -46,7 +46,9 @@ CREATE TABLE IF NOT EXISTS batiment (
 --
 CREATE TABLE IF NOT EXISTS document (
   iddocument int(11) NOT NULL AUTO_INCREMENT,
+  email varchar(100) NOT NULL,
   libelledocument varchar(255) NOT NULL,
+  documentblob mediumblob NOT NULL,
   PRIMARY KEY (iddocument)
 ) ENGINE=InnoDB;
 
@@ -189,6 +191,7 @@ ALTER TABLE cours ADD CONSTRAINT FK_idmatiere_cours FOREIGN KEY (idmatiere) REFE
 ALTER TABLE formation ADD CONSTRAINT FK_responsable_formation FOREIGN KEY (responsable) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE formation ADD CONSTRAINT FK_secretaire_formation FOREIGN KEY (secretaire) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE utilisateur ADD CONSTRAINT FK_idposte_utilisateur FOREIGN KEY (poste) REFERENCES poste(idposte) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE document ADD CONSTRAINT FK_utilisateur_document FOREIGN KEY (email) REFERENCES utilisateur(email) ON DELETE CASCADE ON UPDATE CASCADE;
 -- -------------------------
 -- remplissage des tables --
 -- -------------------------
