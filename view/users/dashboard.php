@@ -1,4 +1,4 @@
-<h1> Profil </h1>
+﻿<h1> Profil </h1>
 <br/>
 <table class="details bordered" align="center">
 	<tr>
@@ -41,8 +41,6 @@
 	</tr>
 
     <?php
-    // TODO : différencier utilisateurs
-    // TODO : lien pour acceder au reste des infos
     if(isset($userdata['userList'])) {
 	    foreach ($userdata['userList'] as $row) {
 	    	$user = $row[0];
