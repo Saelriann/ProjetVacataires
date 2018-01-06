@@ -53,41 +53,37 @@
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>major">Affichage des matières</a>
           <?php
           		// le secrétaire gère les cours
-            if(isset($_SESSION['email'])) {
-          ?>
-            --------- 
-               <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc"> Affichage des documents </a>
-          <?php 
+            if(isset($_SESSION['email'])) { 
               if($_SESSION["poste"] == 2 || $_SESSION["poste"] == 3 ||$_SESSION["poste"] == 4 ) { 
           ?>	
               	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>registercourse"> Créer un nouveau cours </a>
           <?php 
               } 
+            } 
+          ?>
+        </div>
+      </li>
+      <?php 
+        if(isset($_SESSION['email'])) {
+      ?>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="<?php echo $ep_dynamic_url; ?>" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Documents et paiements
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc"> Affichage des documents </a>
+            <?php 
               if ($_SESSION["poste"] == 5 ) {
               ?>
               <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>pay"> Affichage des paiements </a>
               <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>pay/add"> Ajouter des paiements </a>
               <?php
-              }
-            } 
+              } 
           ?>
         </div>
-      </li>
-      <!-- 
-      TODO : gérer les documents et les rémunérations
-      si document fourni par vacataire, alors responsable financier peut verser quelque chose (indicateur OK versement ou oubli document) 
-        ==>  si dans nom == "RIB" && "présence"
-      session = 3/4/5 peut voir les documents fournis par tous les vacataires
-      un vacataire (1) peut voir ses propres documents
-       -->
-          		
+      </li>    
+      <?php } ?>      		
     </ul>
   </div>
 </nav>
 <center>
-
-<pre> 
-<?php 
-    var_dump($_SESSION); 
-?> 
-</pre> 
