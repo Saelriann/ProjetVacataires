@@ -114,6 +114,13 @@ class auth_model extends DBconfig {
 			$result['userList'] = $resultRaw;
 		}
 
+		// documents du Vacataire
+		if ($result['poste_name'] === "Vacataire") {
+			$userMail = $session_array['user_id'];
+			$resultRaw = mysqli_fetch_all($this->helper->db_select("libelledocument", "document", "WHERE email='$userMail' "));
+			$result['document'] = $resultRaw;
+		}
+
 		return $result;
 	}
 	

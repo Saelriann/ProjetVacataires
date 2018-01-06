@@ -50,4 +50,28 @@
 
     ?>
 </table>
+
+<br/>
+<br/>
+<br/>
+
+<?php
+    if($userdata['poste_name'] == "Vacataire") {
+    	echo "<table class='details bordered' align='center'>";
+
+    	echo "<tr> <td> <h5> Vos documents </h5> </td> </tr>";
+    	if(isset($userdata['document'])) {
+		    foreach ($userdata['document'] as $row) {
+		    	$doc = $row[0];
+		    	echo "<tr> <td> $doc </td> </tr>";
+			}
+		}
+
+		echo "</table>";
+
+	    echo "<br/> <button class='btn waves-effect waves-light light-blue darken-4' type='submit'>Mettre en ligne vos documents</button>";
+	}
+?>
+
+
 </center>
