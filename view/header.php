@@ -33,6 +33,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course/mesCours">Mes Cours</a>
+          <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc/mesDocs">Mes Documents</a>
           ----
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/settings">Modifier son compte</a>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/password">Changer de mot de passe</a>
@@ -53,12 +54,21 @@
           <?php
           		// le secrétaire gère les cours
             if(isset($_SESSION['email'])) {
+          ?>
+            --------- 
+               <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc"> Affichage des documents </a>
+          <?php 
               if($_SESSION["poste"] == 2 || $_SESSION["poste"] == 3 ||$_SESSION["poste"] == 4 ) { 
           ?>	
-                ----
               	<a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>registercourse"> Créer un nouveau cours </a>
           <?php 
               } 
+              if ($_SESSION["poste"] == 5 ) {
+              ?>
+              <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>pay"> Affichage des paiements </a>
+              <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>pay/add"> Ajouter des paiements </a>
+              <?php
+              }
             } 
           ?>
         </div>
@@ -76,10 +86,8 @@
 </nav>
 <center>
 
-<!-- 
 <pre> 
 <?php 
-    //var_dump($_SESSION); 
+    var_dump($_SESSION); 
 ?> 
 </pre> 
--->
