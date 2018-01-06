@@ -3,7 +3,7 @@
  * Controleur d'enregistrement des cours
  */
  
-class registercourse {
+class registercourse extends authcheck {
 	
 	public function __construct()
 	  {

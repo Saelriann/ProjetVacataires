@@ -3,7 +3,7 @@
  * Controleur des matières
  */
 
-class major
+class major extends authcheck
 {
 
     public function __construct()

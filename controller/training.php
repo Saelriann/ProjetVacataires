@@ -3,7 +3,7 @@
  * Controleur des formations
  */
 
-class training
+class training extends authcheck
 {
 
     public function __construct()
@@ -23,6 +23,9 @@ class training
     }
     public function modify($id) 
     {
+        // securisation : pas possible de modifier si pas connecté, et pas admin compétent
+        if (!isset(($_SESSION["easyphp_sessionid"])) || empty($_SESSION["easyphp_sessionid"]) || empty($_SESSION["poste"]) == 1 || empty($_SESSION["poste"]) == 5 ) header("Location: " . $GLOBALS['ep_dynamic_url']."dashboard");
+
         $trainingdata = $this->model->trainingDetailsById($id);
         $alldata = $this->model->alldata();
         if (!empty($_POST)) {

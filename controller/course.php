@@ -3,7 +3,7 @@
  * Controleur des cours
  */
 
-class course
+class course extends authcheck
 {
 
     public function __construct()
