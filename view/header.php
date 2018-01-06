@@ -35,6 +35,9 @@
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>course/mesCours">Mes Cours</a>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc/mesDocs">Mes Documents</a>
           ----
+          <?php if ($_SESSION["poste"] == 1 ) { ?>
+                <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc/add"> Ajouter un document </a>
+          <?php } ?>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/settings">Modifier son compte</a>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/password">Changer de mot de passe</a>
           <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>dashboard/logout">Déconnexion</a>
@@ -72,7 +75,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc"> Affichage des documents </a>
-            <?php 
+            <?php if ($_SESSION["poste"] == 1 ) { ?>
+                <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>doc/add"> Ajouter un document </a>
+              <?php }
               if ($_SESSION["poste"] == 5 ) {
               ?>
               <a class="dropdown-item" href="<?php echo $ep_dynamic_url; ?>pay"> Affichage des paiements </a>

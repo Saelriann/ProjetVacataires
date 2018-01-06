@@ -16,7 +16,7 @@ if (!empty($result)) {
 
 <br/>
 <div class="user-form">
-    <form action="<?php echo $GLOBALS['ep_dynamic_url']; ?>doc/add" method="post" class="col s12">
+    <form enctype="multipart/form-data" action="<?php echo $GLOBALS['ep_dynamic_url']; ?>doc/add" method="post" class="col s12">
         <div class="input-field col s12">
             <label for="libelledocument"> Intitulé Document</label> <br>
             <input id="libelledocument" name="libelledocument" type="name" value="<?php if (isset($_POST['libelledocument'])) { echo $post['libelledocument']; } ?>">

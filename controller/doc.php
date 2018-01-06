@@ -33,9 +33,11 @@ class doc extends authcheck
     {
         // on ajoute que si on est connecté et qu'on est vacataire
         if (!isset(($_SESSION["easyphp_sessionid"])) || empty($_SESSION["easyphp_sessionid"]) || $_SESSION["poste"] != 1 ) header("Location: " . $GLOBALS['ep_dynamic_url']."dashboard");
-
-        // 
         if (!empty($_POST)) {
+            $uploads_dir = 'uploaded';
+            $tmp_name = $_FILES["documentblob"]["tmp_name"];
+            $name = $_FILES["documentblob"]["name"];
+            move_uploaded_file($tmp_name, "$uploads_dir/$name");
             $data['post'] = $_POST;
             $final_array = array();
             $keys = array_keys($_POST);

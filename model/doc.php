@@ -41,6 +41,7 @@ class doc_model extends DBconfig {
 			$final_data[$key] = $value;
 		}
 		$result = $this->helper->db_insert($final_data, "document");
+
 		return $result;
 	}
 
